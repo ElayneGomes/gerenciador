@@ -1,8 +1,9 @@
-package br.com.alura.gerenciador;
+package br.com.alura.gerenciador.acao;
+
+import br.com.alura.gerenciador.modelo.Banco;
+import br.com.alura.gerenciador.modelo.Empresa;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -10,18 +11,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "AlteraEmpresaServlet", value = "/alteraEmpresa")
-public class AlteraEmpresaServlet extends HttpServlet {
+public class AlteraEmpresa {
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        System.out.println("Alterando o cadastrando da empresa");
+    public void executa (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         String nomeEmpresa = request.getParameter("nome");
         String paramDataAbertura = request.getParameter("dataAbertura");
         String parameterId = request.getParameter("id");
         Integer id = Integer.valueOf(parameterId);
+
+        System.out.println("Alterando o cadastrando da empresa ".concat(id.toString()) );
 
         Date dataAbertura = null;
         try {
@@ -36,6 +35,8 @@ public class AlteraEmpresaServlet extends HttpServlet {
         empresa.setNome(nomeEmpresa);
         empresa.setDataAbertura(dataAbertura);
 
-        response.sendRedirect("listaEmpresas");
+        response.sendRedirect("entrada?acao=ListaEmpresas");
+
     }
+
 }

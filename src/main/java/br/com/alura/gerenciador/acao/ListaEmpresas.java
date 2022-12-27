@@ -1,19 +1,20 @@
-package br.com.alura.gerenciador;
+package br.com.alura.gerenciador.acao;
+
+import br.com.alura.gerenciador.modelo.Banco;
+import br.com.alura.gerenciador.modelo.Empresa;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListaEmpresasServlet", value = "/listaEmpresas")
-public class ListaEmpresasServlet extends HttpServlet {
+public class ListaEmpresas {
 
-    @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void executa (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        System.out.println("Listando as Empresas");
 
         Banco banco = new Banco();
         List<Empresa> listaDeEmpresas = banco.getEmpresas();
@@ -21,7 +22,6 @@ public class ListaEmpresasServlet extends HttpServlet {
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/listaEmpresas.jsp");
         requestDispatcher.forward(request, response);
-
     }
 
 }
