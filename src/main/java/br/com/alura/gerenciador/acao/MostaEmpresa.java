@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class MostaEmpresa {
+public class MostaEmpresa implements Acao {
 
     public String executa (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Exibindo a empresa");
