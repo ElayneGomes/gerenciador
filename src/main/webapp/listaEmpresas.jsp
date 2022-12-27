@@ -8,6 +8,11 @@
     <title>Lista de Empresas</title>
 </head>
 <body>
+
+    <c:if test="${not empty empresa}">
+        <h4>Empresa ${empresa} cadastrada com sucesso!</h4>
+    </c:if>
+
     <h1>Lista de Empresas:</h1>
 
     <ul>
