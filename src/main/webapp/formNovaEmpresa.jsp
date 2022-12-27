@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Nova Empresa</title>
 </head>
 <body>
     <form action="${linkServletNovaEmpresa}" method="post">

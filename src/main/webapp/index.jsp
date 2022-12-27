@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>Gerenciador Cadastro - JSP</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
+<h1>Gerenciador Empresas</h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="listaEmpresas">Lista de Empresas</a>
 </body>
 </html>
