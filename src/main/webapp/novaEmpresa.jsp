@@ -1,6 +1,4 @@
-<%
-    String nomeEmpresa = (String) request.getAttribute("empresa");
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +6,12 @@
     <title>Nova Empresa</title>
 </head>
 <body>
-    <h1>Empresa <% out.println(nomeEmpresa); %> cadastrada com sucesso!</h1>
+    <c:if test="${not empty empresa}">
+        <h4>Empresa ${empresa} cadastrada com sucesso!</h4>
+    </c:if>
+
+    <c:if test="${empty empresa}">
+        <h4>Nenhuma empresa cadastrada!</h4>
+    </c:if>
 </body>
 </html>

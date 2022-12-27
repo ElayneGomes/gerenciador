@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet(name = "NovaEmpresaServlet", value = "/novaEmpresa")
 public class NovaEmpresaServlet extends HttpServlet {
@@ -18,8 +21,19 @@ public class NovaEmpresaServlet extends HttpServlet {
         System.out.println("Cadastrando nova empresa");
 
         String nomeEmpresa = req.getParameter("nome");
+        String paramDataAbertura = req.getParameter("dataAbertura");
+
+        Date dataAbertura = null;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            dataAbertura = sdf.parse(paramDataAbertura);
+        } catch (ParseException e) {
+            throw new ServletException(e);
+        }
+
         Empresa empresa = new Empresa();
         empresa.setNome(nomeEmpresa);
+        empresa.setDataAbertura(dataAbertura);
 
         Banco banco = new Banco();
         banco.adiciona(empresa);
