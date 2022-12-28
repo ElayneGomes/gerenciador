@@ -1,27 +1,29 @@
 package br.com.alura.gerenciador.servlet;
 
-import br.com.alura.gerenciador.acao.*;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
+import br.com.alura.gerenciador.acao.Acao;
+
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-//@WebServlet(name = "UnicaEntradaServlet", value = "/entrada")
-public class UnicaEntradaServlet extends HttpServlet {
+//@WebFilter(filterName = "ControladorFilter", urlPatterns = "/entrada")
+public class ControladorFilter implements Filter {
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws ServletException, IOException {
+
+        System.out.println("ControladorFilter");
+
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String paramAcao = request.getParameter("acao");
-
         String nomeDaClasse = "br.com.alura.gerenciador.acao." + paramAcao;
-        String nome;
 
+        String nome;
         try {
             Class<?> classe = Class.forName(nomeDaClasse);// Carrega a classe com o nome
             Acao acao = (Acao) classe.newInstance();

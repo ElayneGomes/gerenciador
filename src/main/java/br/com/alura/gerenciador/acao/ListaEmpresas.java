@@ -14,7 +14,7 @@ public class ListaEmpresas implements Acao {
 
     public String executa (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("Listando as Empresas");
+        System.out.println("Listando Empresas");
 
         Banco banco = new Banco();
         List<Empresa> listaDeEmpresas = banco.getEmpresas();
