@@ -6,6 +6,9 @@
     <title>Nova Empresa</title>
 </head>
 <body>
+    <c:import url="logout-parcial.jsp"/>
+    <br>
+    <br>
     <c:if test="${not empty empresa}">
         <h4>Empresa ${empresa} cadastrada com sucesso!</h4>
     </c:if>

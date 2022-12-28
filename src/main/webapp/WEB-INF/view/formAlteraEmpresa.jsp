@@ -8,6 +8,9 @@
     <title>Alterando a Empresa</title>
 </head>
 <body>
+
+    <c:import url="logout-parcial.jsp"/>
+
     <form action="${linkEntradaServlet}" method="post">
         Nome: <input type="text" name="nome" value="${empresa.nome}">
         Data de abertura: <input type="text" name="dataAbertura" value="<fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/>">
